@@ -13,6 +13,7 @@ import {
 
 const styles = StyleSheet.create({
   container: {
+     backgroundColor:'transparent',
     left: 0,
     right: 0,
     bottom: 0,
