@@ -35,6 +35,7 @@ const defaultAnimation = {
 
 export default class KeyboardSpacer extends Component {
   static propTypes = {
+    animationConfig: PropTypes.object,
     topSpacing: PropTypes.number,
     onToggle: PropTypes.func,
     style: View.propTypes.style,
@@ -74,14 +75,14 @@ export default class KeyboardSpacer extends Component {
       return;
     }
 
-    let animationConfig = defaultAnimation;
-    if (Platform.OS === 'ios') {
-      animationConfig = LayoutAnimation.create(
-        event.duration,
-        LayoutAnimation.Types[event.easing],
-        LayoutAnimation.Properties.opacity,
-      );
-    }
+    let animationConfig = this.props.animationConfig ? this.props.animationConfig : defaultAnimation;
+    // if (Platform.OS === 'ios') {
+    //   animationConfig = LayoutAnimation.create(
+    //     event.duration,
+    //     LayoutAnimation.Types[event.easing],
+    //     LayoutAnimation.Properties.opacity,
+    //   );
+    // }
     LayoutAnimation.configureNext(animationConfig);
 
     // get updated on rotation
@@ -97,14 +98,14 @@ export default class KeyboardSpacer extends Component {
   }
 
   resetKeyboardSpace(event) {
-    let animationConfig = defaultAnimation;
-    if (Platform.OS === 'ios') {
-      animationConfig = LayoutAnimation.create(
-        event.duration,
-        LayoutAnimation.Types[event.easing],
-        LayoutAnimation.Properties.opacity,
-      );
-    }
+    let animationConfig = this.props.animationConfig ? this.props.animationConfig : defaultAnimation;
+    // if (Platform.OS === 'ios') {
+    //   animationConfig = LayoutAnimation.create(
+    //     event.duration,
+    //     LayoutAnimation.Types[event.easing],
+    //     LayoutAnimation.Properties.opacity,
+    //   );
+    // }
     LayoutAnimation.configureNext(animationConfig);
 
     this.setState({
